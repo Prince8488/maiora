@@ -1,0 +1,34 @@
+<div class="main">
+  <h1>Popular Item</h1>
+  <ul class="cards">
+    <li class="cards_item" *ngFor="let item of productList">
+      <div class="card">
+        <a [routerLink]="['/product-details', item.id]">
+          <div class="card_image">
+            <img [src]="item.image" />
+          </div>
+
+          <div class="card_content">
+            <h2 class="card_title">{{ item.name }}</h2>
+            <p class="card_text">${{ item.price }}</p>
+          </div>
+        </a>
+        <button
+          class="btn card_btn"
+          (click)="increaseQuantity(item, item.id)"
+          *ngIf="item.quantity == 0; else block"
+        >
+          Add to Cart
+        </button>
+        <ng-template #block>
+          <div class="quantity-controls">
+            <button (click)="decreaseQuantity(item, item.id)">-</button>
+            <span>{{ item.quantity }}</span>
+            <button (click)="increaseQuantity(item, item.id)">+</button>
+          </div>
+        </ng-template>
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="margin"></div>

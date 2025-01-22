@@ -1,0 +1,51 @@
+<div class="margin"></div>
+<div class="margin"></div>
+<div class="product-details" *ngFor="let item of productList">
+  <div class="product-image">
+    <img src="{{ item.image }}" alt="Cheese Burger" />
+    <button class="wishlist-btn">&#9829;</button>
+  </div>
+
+  <div class="product-info">
+    <div class="product-info-detail">
+      <h2>{{ item.name }}</h2>
+      <p class="price">${{ item.price }}</p>
+    </div>
+    <p class="stock-status">In Stock</p>
+    <div class="rating">⭐⭐⭐⭐☆</div>
+  </div>
+
+  <div class="quantity-section">
+    <p>Product Quantity</p>
+    <button
+      class="btn quantity-controls card_btn"
+      (click)="increaseQuantity(item, item.id)"
+      *ngIf="item.quantity == 0; else block"
+    >
+      Add to Cart
+    </button>
+    <ng-template #block>
+      <div class="quantity-controls">
+        <button (click)="decreaseQuantity(item, item.id)">-</button>
+        <span>{{ item.quantity }}</span>
+        <button (click)="increaseQuantity(item, item.id)">+</button>
+      </div>
+    </ng-template>
+  </div>
+  <div class="product-description">
+    <h3>Product Details</h3>
+    <p>{{ item.description }} <span class="read-more">Read More</span></p>
+  </div>
+
+  <div class="related-products">
+    <h3>Related Products</h3>
+    <div class="related-items">
+      <div class="related-item" *ngFor="let item of products">
+        <a [routerLink]="['/product-details', item.id]">
+          <img [src]="item.image" alt="Burger" />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<br />

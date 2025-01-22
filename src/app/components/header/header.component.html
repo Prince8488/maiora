@@ -1,0 +1,16 @@
+<header>
+  <nav>
+    <div class="header" id="myTopnav">
+      <a href="javascript:void(0);" class="icon">
+        <i class="fa fa-bars"></i>
+      </a>
+      <a [routerLink]="'/'" class="active">Burger Queen</a>
+      <div class="header-right">
+        <a class="notification" [routerLink]="'/cart'">
+          <i class="fa fa-bell"></i
+          ><span class="badge">{{ cartItem.length }}</span></a
+        >
+      </div>
+    </div>
+  </nav>
+</header>

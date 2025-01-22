@@ -1,0 +1,33 @@
+.outer {
+    display: none;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    height: 40px;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.nav-item {
+    color: #555;
+    font-size: 18px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-item:hover {
+    color: #000;
+}
+
+@media screen and (max-width: 600px) {
+
+    .outer {
+        display: block;
+    }
+}
